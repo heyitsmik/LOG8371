@@ -9,5 +9,5 @@ jobs:
           name: Greeting
           command: echo Hello, world.
       - run: 
-          name: ant -lib lib/ -buildfile build.xml
-          command: ant -lib lib/ -buildfile build.xml
+          name: ant -lib lib/ -buildfile TP1/weka/build.xml
+          command: ant -lib lib/ -buildfile TP1/weka/build.xml
