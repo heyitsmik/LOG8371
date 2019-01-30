@@ -32,7 +32,7 @@ import junit.framework.TestSuite;
  * @author FracPete (fracpete at waikato dot ac dot nz)
  * @version $Revision$
  */
-public class FarthestFirstTest 
+public FarthestFirstTest 
   extends AbstractClustererTest {
 
   public FarthestFirstTest(String name) { 
