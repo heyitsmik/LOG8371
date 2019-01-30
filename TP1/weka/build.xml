@@ -785,6 +785,24 @@
          <jvmarg value="-Dweka.test.Regression.root=${regression_tests_root}"/>
      </java>
   </target>
+  
+    <!-- Run the test cases for the core via junit's testrunner class.
+   This is a faster, simpler option than running the junit task -->
+  <target name="run_tests_tp1" depends="compile_tests" 
+   description="Execute unit tests (fast)">
+<!--    <echo message="pacakge classpath ${pack.cp}"/> -->
+     <java fork="yes" dir="."
+      classname="junit.textui.TestRunner"
+      taskname="junit" failonerror="${run_tests_fail}">
+	 <arg value="weka.TP1Tests"/>
+         <classpath refid="project.class.path" /> 
+       <jvmarg value="-server"/>
+       <jvmarg value="-Duser.timezone=Pacific/Auckland"/>
+<!--       <jvmarg value="-Xint"/> -->
+         <jvmarg value="-Djava.awt.headless=${headless}"/> 
+         <jvmarg value="-Dweka.test.Regression.root=${regression_tests_root}"/>
+     </java>
+  </target>
 
   <!-- Run the test cases for the core and all packages via junit's testrunner class.
    This is a faster, simpler option than running the junit task -->
