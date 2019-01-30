@@ -5,9 +5,9 @@ jobs:
       - image: circleci/openjdk:8-jdk
     steps:
       - checkout
-      - run:
-          name: Greeting
-          command: echo Hello, world.
       - run: 
           name: ant -lib lib/ -buildfile TP1/weka/build.xml
           command: ant -lib lib/ -buildfile TP1/weka/build.xml
+      - run: 
+          name: ant -lib lib/ -buildfile TP1/weka/build.xml
+          command: ant -lib lib/ -buildfile TP1/weka/build.xml run_tests_tp1
