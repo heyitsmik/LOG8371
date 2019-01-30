@@ -46,7 +46,7 @@ import java.util.Vector;
  */
 public abstract class AbstractClusterer
   implements Clusterer, Cloneable, Serializable, CapabilitiesHandler,
-  RevisionHandler, OptionHandler, CapabilitiesIgnorer, CommandlineRunnable {
+  RevisionHandler, OptionHandler, CapabilitiesIgnorer, CommandlineRunnable 
 
   /** for serialization */
   private static final long serialVersionUID = -6099962589663877632L;
