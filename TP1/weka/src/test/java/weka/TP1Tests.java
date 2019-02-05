@@ -21,15 +21,18 @@ package weka;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import weka.classifiers.bayes.NaiveBayesTest;
+import weka.classifiers.bayes.BayesNetTest;
 import weka.clusterers.FarthestFirstTest;
+import weka.clusterers.SimpleKMeansTest;
+import weka.associations.AprioriTest;
 import weka.test.WekaTestSuite;
 
 /**
- * Test class for all clusterers. Run from the command line with: <p/>
- * java weka.clusterers.AllTests
- *
- * @author FracPete (frapcete at waikato dot ac dot nz)
- * @version $Revision$
+ * Test class for...
+ *    - classifiers: NaiveBayes and BayesNet
+ *    - clusterers: FarthestFirst and SimpleKMeans
+ *    - associators: Apriori
  */
 public class TP1Tests
   extends WekaTestSuite {
@@ -38,7 +41,11 @@ public class TP1Tests
 
     TestSuite suite = new TestSuite();
 
+    suite.addTest(NaiveBayesTest.suite());
+    suite.addTest(BayesNetTest.suite());
     suite.addTest(FarthestFirstTest.suite());
+    suite.addTest(SimpleKMeansTest.suite());
+    suite.addTest(AprioriTest.suite());
 
     return suite;
   }
