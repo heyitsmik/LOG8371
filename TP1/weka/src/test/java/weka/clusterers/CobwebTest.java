@@ -17,42 +17,40 @@
  * Copyright (C) 2005 University of Waikato, Hamilton, New Zealand
  */
 
-package weka;
+package weka.clusterers;
+
+import weka.clusterers.AbstractClustererTest;
+import weka.clusterers.Clusterer;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import weka.classifiers.bayes.NaiveBayesTest;
-import weka.classifiers.bayes.BayesNetTest;
-import weka.clusterers.FarthestFirstTest;
-import weka.clusterers.SimpleKMeansTest;
-import weka.clusterers.CobwebTest;
-import weka.associations.AprioriTest;
-import weka.test.WekaTestSuite;
 
 /**
- * Test class for...
- *    - classifiers: NaiveBayes and BayesNet
- *    - clusterers: FarthestFirst and SimpleKMeans
- *    - associators: Apriori
+ * Tests Cobweb. Run from the command line with:<p/>
+ * java weka.clusterers.CobwebTest
+ *
+ * @author FracPete (fracpete at waikato dot ac dot nz)
+ * @version $Revision$
  */
-public class TP1Tests
-  extends WekaTestSuite {
+public class CobwebTest 
+  extends AbstractClustererTest {
 
-  public static Test suite() {
-
-    TestSuite suite = new TestSuite();
-
-    suite.addTest(NaiveBayesTest.suite());
-    suite.addTest(BayesNetTest.suite());
-    suite.addTest(FarthestFirstTest.suite());
-    suite.addTest(SimpleKMeansTest.suite());
-    suite.addTest(AprioriTest.suite());
-    suite.addTest(CobwebTest.suite());
-
-    return suite;
+  public CobwebTest(String name) { 
+    super(name);  
   }
 
-  public static void main(String []args) {
+  /** Creates a default Cobweb */
+  public Clusterer getClusterer() {
+    Cobweb cb = new Cobweb();
+    cb.setSeed(-1); // Make sure data is not randomized in buildClassifier() (incremental == batch)
+    return cb;
+  }
+
+  public static Test suite() {
+    return new TestSuite(CobwebTest.class);
+  }
+
+  public static void main(String[] args){
     junit.textui.TestRunner.run(suite());
   }
 }
