@@ -3,8 +3,8 @@
 import subprocess
 import time
 
-CPU_THRESHOLD = 1
-CPU_THRESHOLD_DOWN = 0.5
+CPU_THRESHOLD = 60
+CPU_THRESHOLD_DOWN = 5
 INIT_TIME = 10
 
 class Container:
