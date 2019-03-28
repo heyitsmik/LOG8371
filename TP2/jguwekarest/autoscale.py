@@ -70,9 +70,14 @@ def autoscale(containers):
         containers[s[0]].update(s[1])
     
     # check to scale up
+    count = 0
     for container in containers.values():
         if now - container.init_time > INIT_TIME and container.cpu_usage > CPU_THRESHOLD:
-            scale_up(containers)
+            count += 1
+
+    # if all containers are overcharged, scale up
+    if count == len(containers):
+        scale_up(containers)
 
     # check to scale down
     average = 0
