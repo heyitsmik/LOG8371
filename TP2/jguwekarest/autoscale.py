@@ -3,7 +3,7 @@
 import subprocess
 import time
 
-CPU_THRESHOLD = 60
+CPU_THRESHOLD = 80
 CPU_THRESHOLD_DOWN = 5
 INIT_TIME = 10
 
